@@ -1,0 +1,22 @@
+#data-table{
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    font-family: arial, sans-serif;
+}
+
+th {
+    font-size: larger;
+    width: 20%;
+    padding: 10px;
+    border: 2px solid #085c86;
+    background-color: #03a89e;
+    text-align: center;
+}
+
+td{
+    padding: 15px;
+    border: 2px solid #085c86;
+    background-color: #97f1f1;
+    text-align: center;
+}
