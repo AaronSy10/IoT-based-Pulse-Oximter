@@ -14,7 +14,6 @@ body{
     position: absolute;
     height: inherit;
     width: 25%;
-    color: red;
 }
 
 #page-head h1{
@@ -28,7 +27,7 @@ body{
 #page-head p{
     position: absolute;
     left:25.3%;
-    top: 40%;
+    top: 45%;
     font-size: 30px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
