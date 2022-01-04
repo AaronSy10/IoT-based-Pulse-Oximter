@@ -51,23 +51,24 @@ body{
 }
 
 th {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: larger;
     width: 20%;
     padding: 25px;
-    background-color: #008081;
+    background-color: #029494;
     text-align: center;
 }
 
 td{
-    padding: 25px;
+    padding: 20px;
 }
 
 tr{
-    background-color: #97f1f1;
+    background-color: #9affff;
     text-align: center;
-    font-size: large;
+    font-size: 20px;
 }
 
 tr:nth-child(odd){
-    background-color: #03a89e;
+    background-color: #09d8cad7;
 }
