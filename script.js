@@ -23,3 +23,8 @@ function addData()
     blood.innerHTML = "working";
     remark.innerHTML = "Good";
 }
+
+function removeData()
+{
+    document.getElementById("data-table").deleteRow(-1);
+}
