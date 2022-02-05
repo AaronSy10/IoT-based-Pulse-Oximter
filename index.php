@@ -11,8 +11,9 @@ $result = mysqli_query($conn,$query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
     <div id="page-head">
@@ -21,7 +22,10 @@ $result = mysqli_query($conn,$query);
     <h1>Pulso</h1>
     <p class="title">IoT-based Pulse Oximeter</p>
     <div class="update-button" onclick="updateData()">
-        <P>Update</P>
+        <p>Update</p>
+    </div>
+    <div class="show-charts" onclick="openCharts()">
+    <p>Show Charts</p>
     </div>
     </div>
     <?php
@@ -51,11 +55,16 @@ $result = mysqli_query($conn,$query);
             }
             ?>
     </table>
+
 </body>
 <script>
     function updateData()
     {
     	location.reload();
+    }
+    function openCharts()
+    {
+        window.location.assign("showcharts.php");
     }
 </script>
 </html>
