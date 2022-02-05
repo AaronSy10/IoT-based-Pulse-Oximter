@@ -1,7 +1,8 @@
 <?php
 include_once ('connect.php');
 $query = "SELECT * FROM data ORDER BY Date, Time Desc limit 20";
-$result = mysqli_query($conn,$query);
+$prresult = mysqli_query($conn,$query);
+$bolresult = mysqli_query($conn,$query);
 ?>
 
 <!DOCTYPE html>
@@ -15,16 +16,17 @@ $result = mysqli_query($conn,$query);
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart1);
+      google.charts.setOnLoadCallback(drawChart2);
 
-      function drawChart() {
+      function drawChart1() {
         var data = google.visualization.arrayToDataTable([
           ['Date', 'Pulse Rate'],
 
           <?php
-            while($rows=mysqli_fetch_assoc($result))
+            while($rows=mysqli_fetch_assoc($prresult))
             {
-                echo "['".$rows['Date']."',".$rows['PulseRate']."],"; 
+                echo "['".$rows['Date']." ".$rows['Time']."',".$rows['PulseRate']."],"; 
             }
             ?>
         ]);
@@ -38,6 +40,31 @@ $result = mysqli_query($conn,$query);
 
         chart.draw(data, options);
       }
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Blood Oxygen Level'],
+
+            <?php
+            while($rows1=mysqli_fetch_assoc($bolresult))
+            {
+                echo "['".$rows1['Date']." ".$rows1['Time']."',".$rows1['PulseRate']."],"; 
+            }
+            ?>
+        ]);
+
+        var options = {
+          title: 'Blood Oxygen Level',
+          color: ['red'],
+          legend: { position: 'bottom' }
+          
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('oxy_chart'));
+
+        chart.draw(data, options);
+      }
+
 
     function back()
     {
@@ -57,6 +84,9 @@ $result = mysqli_query($conn,$query);
         <p>Home</p>
     </div>
     </div>
-    <div id="pulse_chart" style="width: 900px; height: 500px;"></div>
+    <div id="chart-holder">
+    <div id="pulse_chart" class="chart"></div>
+    <div id="oxy_chart" class="chart"></div>
+    </div>
 </body>
 </html>
