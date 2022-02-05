@@ -19,7 +19,10 @@ $result = mysqli_query($conn,$query);
     <div class="bg"></div>
     <img src="icon.svg" alt="pulse icon" id="logo">
     <h1>Pulso</h1>
-    <p>IoT-based Pulse Oximeter</p>
+    <p class="title">IoT-based Pulse Oximeter</p>
+    <div class="update-button" onclick="updateData()">
+        <P>Update</P>
+    </div>
     </div>
     <?php
 
@@ -48,7 +51,6 @@ $result = mysqli_query($conn,$query);
             }
             ?>
     </table>
-    <button id="update-data" onclick="updateData()">Update</button>
 </body>
 <script>
     function updateData()

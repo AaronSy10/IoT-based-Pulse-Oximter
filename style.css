@@ -24,7 +24,7 @@ body{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
-#page-head p{
+#page-head .title{
     position: absolute;
     left:25.3%;
     top: 45%;
@@ -41,6 +41,28 @@ body{
     background-size: cover;
     opacity: 0.7;
 }
+
+.update-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    width: 10%;
+    position: absolute;
+    left: 70%;
+    top: 30%;
+    background-color:#029494;
+}
+
+.update-button p{
+    font-size: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.update-button:hover{
+    background-color:#9affff;
+}
+
 /*------------------------------------------Table------------------------------------------*/
 #data-table{
     width: 100%;
@@ -71,3 +93,4 @@ tr{
 tr:nth-child(odd){
     background-color: #09d8cad7;
 }
+
