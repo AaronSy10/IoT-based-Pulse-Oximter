@@ -48,7 +48,7 @@ $bolresult = mysqli_query($conn,$query);
             <?php
             while($rows1=mysqli_fetch_assoc($bolresult))
             {
-                echo "['".$rows1['Date']." ".$rows1['Time']."',".$rows1['PulseRate']."],"; 
+                echo "['".$rows1['Date']." ".$rows1['Time']."',".$rows1['BloodOxygenLevel']."],"; 
             }
             ?>
         ]);

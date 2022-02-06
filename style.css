@@ -49,17 +49,13 @@ body{
     height: 5vh;
     width: 10%;
     position: absolute;
-    left: 70%;
+    left: 60%;
     top: 30%;
     background-color:#029494;
     text-transform: uppercase;
 }
 
-.update-button p{
-    font-size: 30px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    user-select: none;
-}
+
 
 .show-charts{
     display: flex;
@@ -68,12 +64,24 @@ body{
     height: 5vh;
     width: 10%;
     position: absolute;
-    left: 85%;
+    left: 71%;
     top: 30%;
     background-color:#029494;
     text-transform: uppercase;
 }
 
+.show-all-data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    width: 10%;
+    position: absolute;
+    left: 82%;
+    top: 30%;
+    background-color:#029494;
+    text-transform: uppercase;
+}
 
 /*------------------------------------------Table------------------------------------------*/
 #data-table{

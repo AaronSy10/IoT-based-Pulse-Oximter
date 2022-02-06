@@ -1,6 +1,6 @@
 <?php
 include_once ('connect.php');
-$query = "SELECT * FROM data ORDER BY Date, Time Desc limit 20";
+$query = "SELECT * FROM data ORDER BY Date, Time Desc";
 $result = mysqli_query($conn,$query);
 ?>
 
@@ -21,17 +21,11 @@ $result = mysqli_query($conn,$query);
     <img src="icon.svg" alt="pulse icon" id="logo">
     <h1>Pulso</h1>
     <p class="title">IoT-based Pulse Oximeter</p>
-    <div class="update-button" onclick="updateData()">
-        <p>Update</p>
-    </div>
-    <div class="show-charts" onclick="openCharts()">
-    <p>Show Charts</p>
-    </div>
-    <div class="show-all-data" onclick="openAllData()">
-    <p>Show All Data</p>
+    <div class="update-button" onclick="back()">
+        <p>Back</p>
     </div>
     </div>
-    
+
     <table id="data-table">
         <tr id="header">
             <th>Date<br>(yyyy-mm-dd)</th>
@@ -63,13 +57,9 @@ $result = mysqli_query($conn,$query);
     {
     	location.reload();
     }
-    function openCharts()
+    function back()
     {
-        window.location.assign("showcharts.php");
-    }
-    function openAllData()
-    {
-        window.location.assign("alldata.php");
+        window.location.assign("index.php");
     }
 </script>
 </html>
