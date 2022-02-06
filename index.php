@@ -17,21 +17,20 @@ $result = mysqli_query($conn,$query);
 </head>
 <body>
     <div id="page-head">
-    <div class="bg"></div>
-    <img src="icon.svg" alt="pulse icon" id="logo">
-    <h1>Pulso</h1>
-    <p class="title">IoT-based Pulse Oximeter</p>
-    <div class="update-button" onclick="updateData()">
-        <p>Update</p>
+        <div class="bg"></div>
+        <img src="icon.svg" alt="pulse icon" id="logo">
+        <h1>Pulso</h1>
+        <p class="title">IoT-based Pulse Oximeter</p>
+        <div class="update-button" onclick="updateData()">
+            <p>Update</p>
+        </div>
+        <div class="show-charts" onclick="openCharts()">
+            <p>Show Charts</p>
+        </div>
+        <div class="show-all-data" onclick="openAllData()">
+            <p>Show All Data</p>
+        </div>
     </div>
-    <div class="show-charts" onclick="openCharts()">
-    <p>Show Charts</p>
-    </div>
-    <div class="show-all-data" onclick="openAllData()">
-    <p>Show All Data</p>
-    </div>
-    </div>
-    
     <table id="data-table">
         <tr id="header">
             <th>Date<br>(yyyy-mm-dd)</th>

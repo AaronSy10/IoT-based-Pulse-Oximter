@@ -2,7 +2,25 @@
 include_once ('connect.php');
 $query = "SELECT * FROM data ORDER BY Date, Time Desc";
 $result = mysqli_query($conn,$query);
+
 ?>
+
+<!----if searchbar is blank, query all. If given a number, search by date. If no match, echo no match---->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#search").keyup(function(){
+            $.ajax({
+                url: 'data_search.php',
+                type: 'POST',
+                data: {search: $(this).val()},
+                success: function(result){
+                    $("#result").html(result);
+                }
+            });
+        });
+    });
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,27 +36,29 @@ $result = mysqli_query($conn,$query);
 <body>
     <div id="page-head">
     <div class="bg"></div>
-    <img src="icon.svg" alt="pulse icon" id="logo">
-    <h1>Pulso</h1>
-    <p class="title">IoT-based Pulse Oximeter</p>
-    <div class="update-button" onclick="back()">
-        <p>Back</p>
+        <img src="icon.svg" alt="pulse icon" id="logo">
+        <h1>Pulso</h1>
+        <p class="title">IoT-based Pulse Oximeter</p>
+        <div class="update-button" onclick="back()">
+            <p>Back</p>
+        </div>
+        <div>
+            <input type="TEXT" id="search" placeholder = "Search" autocomplete = "off">
+        </div>
     </div>
-    </div>
-
-    <table id="data-table">
-        <tr id="header">
-            <th>Date<br>(yyyy-mm-dd)</th>
-            <th>Time<br>(hh:mm:ss)</th>
-            <th>Pulse Rate</th>
-            <th>Blood Oxygen Level</th>
-            <th>Remark</th>
-        </tr>
-
-        <?php
+    <div id="result">
+        <table id="data-table">
+            <tr id="header">
+                <th>Date<br>(yyyy-mm-dd)</th>
+                <th>Time<br>(hh:mm:ss)</th>
+                <th>Pulse Rate</th>
+                <th>Blood Oxygen Level</th>
+                <th>Remark</th>
+            </tr>
+            <?php
             while($rows=mysqli_fetch_assoc($result))
             {
-        ?>
+            ?>
             <tr>
                 <td><?php echo $rows['Date']; ?></td>
                 <td><?php echo $rows['Time']; ?></td>
@@ -46,10 +66,11 @@ $result = mysqli_query($conn,$query);
                 <td><?php echo $rows['BloodOxygenLevel']; ?></td>
                 <td><?php echo $rows['Remarks']; ?></td>
             </tr> 
-        <?php
+            <?php
             }
             ?>
-    </table>
+        </table>
+    </div>
 
 </body>
 <script>
