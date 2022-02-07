@@ -9,7 +9,7 @@ if (isset($_POST['search'])){
     $search = $_POST['search'];
 
     if(strlen($search) < 2){
-        $sql = "SELECT * FROM data ORDER BY Date, Time Desc";
+        $sql = "SELECT * FROM data ORDER BY `data`.`Date` DESC, `data`.`Time` DESC";
         $stmt = $db->prepare($sql);
         $rows = $stmt->execute();
         ?>
