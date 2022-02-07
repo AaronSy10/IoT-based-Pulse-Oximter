@@ -31,7 +31,6 @@ if (isset($_POST['search'])){
             <td><?php echo $rows['BloodOxygenLevel']; ?></td>
             <td><?php echo $rows['Remarks']; ?></td>
         </tr>
-        
         <?php
         }
         ?>
@@ -40,6 +39,7 @@ if (isset($_POST['search'])){
     }
     elseif(strlen($search) > 1)
     {
+        $text = $search;
         $search = "%$search";
         $sql = "SELECT * FROM data WHERE Date LIKE :s ORDER BY Date, Time Desc";
         $stmt = $db->prepare($sql);
@@ -55,7 +55,21 @@ if (isset($_POST['search'])){
                 <th>Remark</th>
             </tr>
         <?php
-        while($rows = $stmt->fetch()){
+        // check if rows are empty
+        $rows = $stmt->fetch();
+        if ($rows == 0)
+        {
+            ?>
+            </table>
+            <div id="error"><h1>
+            <?php
+            echo "Sorry there seems to be no results for \"$text\"";
+            ?>
+            </h1></div>
+            <?php
+        }
+        else{
+            do{
         ?>
         <tr>
             <td><?php echo $rows['Date']; ?></td>
@@ -65,10 +79,11 @@ if (isset($_POST['search'])){
             <td><?php echo $rows['Remarks']; ?></td>
         </tr>
         <?php
-        }
+        }while($rows = $stmt->fetch());
         ?>
         </table>
         <?php
+        }
     }
 }
 ?>
