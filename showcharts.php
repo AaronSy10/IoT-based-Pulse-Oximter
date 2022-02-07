@@ -1,6 +1,6 @@
 <?php
 include_once ('connect.php');
-$query = "SELECT * FROM data ORDER BY Date, Time Desc limit 20";
+$query = "SELECT * FROM data ORDER BY `data`.`Date` asc, `data`.`Time` asc limit 20";
 $prresult = mysqli_query($conn,$query);
 $bolresult = mysqli_query($conn,$query);
 ?>

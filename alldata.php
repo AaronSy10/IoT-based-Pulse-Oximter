@@ -1,6 +1,6 @@
 <?php
 include_once ('connect.php');
-$query = "SELECT * FROM data ORDER BY Date, Time Desc";
+$query = "SELECT * FROM data ORDER BY `data`.`Date` DESC, `data`.`Time` DESC";
 $result = mysqli_query($conn,$query);
 
 ?>
