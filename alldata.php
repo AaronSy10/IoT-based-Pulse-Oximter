@@ -43,7 +43,7 @@ $result = mysqli_query($conn,$query);
             <p>Back</p>
         </div>
         <div>
-            <input type="TEXT" id="search" placeholder = "Search" autocomplete = "off">
+            <input type="TEXT" id="search" placeholder = "YYYY-MM-DD; MM-DD" autocomplete = "off">
         </div>
     </div>
     <div id="result">
