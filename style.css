@@ -13,7 +13,7 @@ body{
 #page-head img {
     position: absolute;
     height: inherit;
-    width: 25%;
+    width: inherit;
 }
 
 #page-head h1{
@@ -51,10 +51,20 @@ body{
     position: absolute;
     left: 60%;
     top: 30%;
-    background-color:#029494;
+    border: 4px solid #029494;
     text-transform: uppercase;
     cursor: pointer;
+    transition-duration: 0.4s;
+    font-weight:bolder;
+    font-size: larger;
+    background-color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.update-button:hover {
+    background-color: #09d8cad7; 
+    color: white;
+  }
 
 .show-charts{
     display: flex;
@@ -65,10 +75,20 @@ body{
     position: absolute;
     left: 71%;
     top: 30%;
-    background-color:#029494;
+    border: 4px solid #029494;
     text-transform: uppercase;
     cursor: pointer;
+    font-weight:bolder;
+    font-size: larger;
+    transition-duration: 0.4s;
+    background-color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.show-charts:hover {
+    background-color: #09d8cad7; 
+    color: white;
+  }
 
 .show-all-data{
     display: flex;
@@ -79,10 +99,20 @@ body{
     position: absolute;
     left: 82%;
     top: 30%;
-    background-color:#029494;
+    border: 4px solid #029494;
     text-transform: uppercase;
     cursor: pointer;
+    transition-duration: 0.4s;
+    font-weight:bolder;
+    font-size: larger;
+    background-color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.show-all-data:hover {
+    background-color: #09d8cad7;
+    color: white;
+  }
 
 #search{
     display: flex;
